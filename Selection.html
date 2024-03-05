@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0">
+    <title>Group Selection</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f2f2f2; /* Fallback background color */
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background-image: url('BACKGROUND.jfif');
+            background-size: cover;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        }
+
+        form {
+            background-color: rgba(101, 166, 212, 0.9); /* Adjusted background color */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px; /* Adjusted max width for better desktop experience */
+            margin: 20px auto;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            color: #333; /* Adjusted text color */
+            text-align: center; /* Set text alignment to left */
+            margin-bottom: 20px; /* Added margin for separation */
+        }
+
+       
+        .checkbox-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px; /* Adjusted gap to reduce spacing */
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 100%;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+        .checkbox-partition {
+            flex: 1 1 calc(50% - 20px);
+            max-width: calc(50% - 20px);
+            margin-bottom: 20px;
+        }
+
+        input[type="checkbox"] {
+            display: none;
+        }
+
+        input[type="checkbox"]+label {
+        position: relative;
+        padding-left: 40px;
+        cursor: pointer;
+        display: block;
+        line-height: 1.5;
+        font-size: 16px;
+        text-align: left;
+        color: #333;
+        width: 200px; /* Add this line for consistent width */
+    }
+        input[type="checkbox"]+label:before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            border: 2px solid #3498db; /* Adjusted border color */
+            background-color: #fff;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="checkbox"]:checked+label:before {
+            background-color: #2ecc71;
+            border-color: #2ecc71;
+        }
+
+        input[type="checkbox"]+label:after {
+            content: attr(value);
+            position: absolute;
+            left: 40px;
+            top: 0;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: #fff;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            display: block;
+            margin: 20px auto;
+            font-size: 24px;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .checkbox-partition {
+                flex: 1 1 100%;
+                max-width: 100%;
+            }
+
+            .checkbox-container {
+                justify-content: flex-start;
+            }
+
+            input[type="checkbox"]+label {
+                width: 100%;
+            }
+        }
+    </style>
+    
+    <script>
+        function checkSelection() {
+            let totalSelected = 0;
+            const maxTotalSelections = 3;
+            let humssSelected = 0;
+            let stemSelected = 0;
+            let tvlSelected = 0;
+            let smawSelected = 0;
+            const humssItems = document.getElementsByName('humss');
+            const stemItems = document.getElementsByName('stem');
+            const tvlItems = document.getElementsByName('tvl');
+            const smawItems = document.getElementsByName('smaw');
+
+            const allItems = document.querySelectorAll('input[type="checkbox"]');
+
+            allItems.forEach(item => {
+                if (item.checked) {
+                    totalSelected++;
+                    if (totalSelected > maxTotalSelections) {
+                        item.checked = false; // Uncheck the item if the limit is exceeded
+                    }
+                }
+            });
+
+            for (let i = 0; i < humssItems.length; i++) {
+                if (humssItems[i].checked) {
+                    humssSelected++;
+                }
+            }
+            for (let i = 0; i < stemItems.length; i++) {
+                if (stemItems[i].checked) {
+                    stemSelected++;
+                }
+            }
+            for (let i = 0; i < tvlItems.length; i++) {
+     if (tvlItems[i].checked) {
+        tvlSelected++;
+    }
+}
+            for (let i = 0; i < smawItems.length; i++) {
+                if (smawItems[i].checked) {
+                    smawSelected++;
+                }
+            }
+            const selectedCounts = [humssSelected, stemSelected, tvlSelected, smawSelected];
+            const maxSelected = Math.max(...selectedCounts);
+            const maxIndex = selectedCounts.indexOf(maxSelected);
+            if (maxSelected === 0) {
+                alert('Please select at least one item.');
+            } else if (totalSelected > maxTotalSelections) {
+                alert('You can only select up to three items.');
+            } else {
+                switch (maxIndex) {
+                    case 0:
+                        window.location.href = 'humss.html';
+                        break;
+                    case 1:
+                        window.location.href = 'stem.html';
+                        break;
+                    case 2:
+                        window.location.href = 'tvl.html';
+                        break;
+                    case 3:
+                        window.location.href = 'smaw.html';
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+  
+
+    <form>
+        <h1>Select Interests</h1>
+        <div class="checkbox-container">
+            <input type="checkbox" name="humss" value="Creative Writing" id="humss1"><label for="humss1">Creative Writing</label>
+            <input type="checkbox" name="humss" value="Social Advocacy" id="humss2"><label for="humss2">Social Advocacy</label>
+            <input type="checkbox" name="humss" value="Historical Research" id="humss3"><label for="humss3">Historical Research</label>
+            <input type="checkbox" name="humss" value="Philosophy Exploration" id="humss4"><label for="humss4">Philosophy Exploration</label>
+            <input type="checkbox" name="humss" value="Science Exploration" id="humss5"><label for="humss5">Science Exploration</label>
+            <input type="checkbox" name="humss" value="Psychology Interest" id="humss6"><label for="humms6">Psychology Interest</label>
+            <input type="checkbox" name="humss" value="Language Learning" id="humss7"><label for="humss7">Language Learning</label>
+            <input type="checkbox" name="humss" value="Math Enthusiast" id="humss8"><label for="humss8">Math Enthusiast</label>
+
+            <input type="checkbox" name="stem" value="DIY Robotics" id="stem1"><label for="stem1">DIY Robotics</label>
+            <input type="checkbox" name="stem" value="Coding and App Development" id="stem2"><label for="stem2">Coding and App Development</label>
+            <input type="checkbox" name="stem" value="Political Engagement" id="stem3"><label for="stem3">Political Engagement</label>
+            <input type="checkbox" name="stem" value="Technology Innovation" id="stem4"><label for="stem4">Technology Innovation</label>
+            <input type="checkbox" name="stem" value="Engineering Design" id="stem5"><label for="stem5">Engineering Design</label>
+            <input type="checkbox" name="stem" value="Data Analysis" id="stem6"><label for="stem6">Data Analysis</label>
+            <input type="checkbox" name="stem" value="Environmental Advocacy" id="stem7"><label for="stem7">Environmental Advocacy</label>
+            <input type="checkbox" name="stem" value="Media Production" id="stem8"><label for="stem8">Media Production</label>
+
+            <input type="checkbox" name="tvl" value="Graphic Design" id="tvl1"><label for="tvl1">Graphic Design</label>
+            <input type="checkbox" name="tvl" value="Fashion Design and Sewing" id="tvl2"><label for="tvl2">Fashion Design and Sewing</label>
+            <input type="checkbox" name="tvl" value="Automotive Fabrication" id="tvl3"><label for="tvl3">Automotive Fabrication</label>
+            <input type="checkbox" name="tvl" value="Electrical Work" id="tvl4"><label for="tvl4">Electrical Work</label>
+            <input type="checkbox" name="tvl" value="Culinary Arts" id="tvl6"><label for="tvl6">Culinary Arts</label>
+            <input type="checkbox" name="tvl" value="Tourism and Hospitality" id="tvl7"><label for="tvl7">Tourism and Hospitality</label>
+            <input type="checkbox" name="tvl" value="Agricultural Practices" id="tvl8"><label for="tvl8">Agricultural Practices</label>
+
+
+            <input type="checkbox" name="smaw" value="Custom Metal Furniture" id="smaw1"><label for="smaw1">Custom Metal Furniture</label>
+            <input type="checkbox" name="smaw" value="Automotive Maintenance" id="smaw2"><label for="smaw2">Automotive Maintenance</label>
+            <input type="checkbox" name="smaw" value="Metal Sculpture Design" id="smaw3"><label for="smaw3">Metal Sculpture Design</label>
+            <input type="checkbox" name="smaw" value="Welding Artisan Entrepreneurship" id="smaw4"><label for="smaw4">Welding Artisan Entrepreneurship</label>
+            <input type="checkbox" name="smaw" value="Metal Artistry" id="smaw5"><label for="smaw5">Metal Artistry</label>
+            
+            <input type="checkbox" name="smaw" value="Structural Welding" id="smaw6"><label for="smaw6">Structural Welding</label>       
+            <input type="checkbox" name="smaw" value="Welding Repair and Maintenance" id="smaw7"><label for="smaw7">Welding Repair and Maintenance</label>
+            <input type="checkbox" name="smaw" value="Welding and Metalwork" id="smaw8"><label for="smaw8">Welding and Metalwork</label>
+            <input type="checkbox" name="smaw" value="DIY Welding Projects" id="smaw9"><label for="smaw9">DIY Welding Projects</label>
+       
+        </div>
+        <button type="button" onclick="checkSelection()">Submit</button>
+    </form>
+</body>
+</html>

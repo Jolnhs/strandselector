@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title>Julia Ortiz National High School</title>
+    <style>
+        body {
+            background-color: #3498db;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            backdrop-filter: blur(10px); /* Adjust the blur intensity */
+        }
+    
+        header {
+            background-color: #2980b9;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        h1 {
+            margin: 0;
+        }
+    
+        .strand-container {
+            display: grid;
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+    
+        .strand {
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    
+        .strand img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .strand .info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            color: #fff;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+    
+        .strand:hover .info {
+            opacity: 1;
+        }
+    
+        .info h2 {
+            margin-bottom: 10px;
+        }
+    
+        .info p {
+            margin: 0;
+        }
+    
+        .go-to-selection-button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 24px;
+            background-color: #2ecc71;
+            color: #fff;
+            text-decoration: none;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        .go-to-selection-button:hover {
+            background-color: #27ae60;
+        }
+    
+        @media (min-width: 768px) {
+            /* Desktop view styles */
+            .strand-container {
+                grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
+            }
+        }
+    
+        @media (max-width: 767px) {
+            /* Mobile view styles */
+            .strand-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Julia Ortiz National High School</h1>
+    </header>
+
+    <div class="strand-container">
+        <div class="strand">
+            <img src="tVL.jpg" alt="TVL Image" onclick="showInfo('tvl')">
+            <div class="info" id="tvl-info">
+                <h2>TVL (Technical-Vocational-Livelihood)</h2>
+                <p>
+                    The TVL strand focuses on providing students with technical and vocational skills
+                    that prepare them for various livelihood opportunities. Students in this strand
+                    engage in hands-on training and practical experiences related to specific trades
+                    or industries such as culinary arts, automotive, electronics, and more.
+                </p>
+                <p>
+                    TVL equips students with practical skills that are highly relevant to the workforce,
+                    allowing them to pursue careers in specific technical fields.
+                </p>
+            </div>
+        </div>
+
+        <div class="strand">
+            <img src="STEM.jpg" alt="STEM Image" onclick="showInfo('stem')">
+            <div class="info" id="stem-info">
+                <h2>STEM (Science, Technology, Engineering, and Mathematics)</h2>
+                <p>
+                    STEM is a specialized strand that focuses on developing students' skills and
+                    knowledge in the fields of science, technology, engineering, and mathematics.
+                    Students in STEM engage in advanced coursework, experiments, and projects that
+                    prepare them for careers in science and technology-related fields.
+                </p>
+                <p>
+                    STEM education emphasizes critical thinking, problem-solving, and creativity,
+                    making students well-equipped for higher education and STEM-related professions.
+                </p>
+            </div>
+        </div>
+
+        <div class="strand">
+            <img src="HUMSS.jfif" alt="HUMSS Image" onclick="showInfo('humss')">
+            <div class="info" id="humss-info">
+                <h2>HUMSS (Humanities and Social Sciences)</h2>
+                <p>
+                    HUMSS is a strand that focuses on the study of human society, culture, and individual behavior.
+                    Students in HUMSS explore subjects such as history, philosophy, literature, psychology, and sociology.
+                </p>
+                <p>
+                    HUMSS provides a foundation for students interested in pursuing careers in social sciences,
+                    humanities, law, journalism, and other fields that require a deep understanding of human society.
+                </p>
+            </div>
+        </div>
+
+        <div class="strand">
+            <img src="SMAW.jfif" alt="SMAW Image" onclick="showInfo('smaw')">
+            <div class="info" id="smaw-info">
+                <h2>SMAW (Shielded Metal Arc Welding)</h2>
+                <p>
+                    Shielded Metal Arc Welding (SMAW) is a welding process that uses a flux-coated electrode
+                    to create an electric arc for joining metals. It is commonly used in construction,
+                    fabrication, and maintenance work. SMAW is known for its versatility and ability to work
+                    in various positions, making it suitable for different welding applications.
+                </p>
+                <p>
+                    Students in the SMAW strand learn essential welding skills, safety procedures, and
+                    gain hands-on experience in creating welded joints using different types of metals.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a href="selection.html" class="go-to-selection-button">Go to Selection Page</a>
+
+    <script>
+        function showInfo(strand) {
+            var infoDiv = document.getElementById(strand + "-info");
+            if (infoDiv.style.opacity === "0") {
+                infoDiv.style.opacity = "1";
+            } else {
+                infoDiv.style.opacity = "0";
+            }
+        }
+    </script>
+</body>
+</html>

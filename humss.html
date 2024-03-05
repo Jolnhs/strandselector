@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HUMSS (Humanities and Social Sciences)
+
+    </title>
+
+
+    <header>
+        Humanities and Social Sciences
+    </header>
+    <link rel="stylesheet" href="./styles.css" />
+
+    <style>
+
+
+        </style>
+</head>
+
+
+<body>
+   
+    <div class="question">
+        <p>1. Who is considered the father of modern sociology?</p><input type="radio" name="q1" value="a"> a. Karl
+        Marx<br><input type="radio" name="q1" value="b"> b. Max Weber<br><input type="radio" name="q1" value="c"> c.
+        Emile Durkheim<br><input type="radio" name="q1" value="d"> d. Auguste Comte
+    </div>
+    <div class="question">
+        <p>2. In literature, what is a sonnet?</p><input type="radio" name="q2" value="a"> a. A short story<br><input
+            type="radio" name="q2" value="b"> b. A type of novel<br><input type="radio" name="q2" value="c"> c. A
+        14-line poem<br><input type="radio" name="q2" value="d"> d. An essay
+    </div>
+    <div class="question">
+        <p>3. What historical period is known as the Renaissance?</p><input type="radio" name="q3" value="a"> a. The
+        Middle Ages<br><input type="radio" name="q3" value="b"> b. The Age of Enlightenment<br><input type="radio"
+            name="q3" value="c"> c. The Industrial Revolution<br><input type="radio" name="q3" value="d"> d. The revival
+        of art and learning in Europe (14th to 17th centuries)
+    </div>
+    <div class="question">
+        <p>4. Who wrote the play "Romeo and Juliet"?</p><input type="radio" name="q4" value="a"> a. William
+        Wordsworth<br><input type="radio" name="q4" value="b"> b. William Shakespeare<br><input type="radio" name="q4"
+            value="c"> c. Jane Austen<br><input type="radio" name="q4" value="d"> d. Charles Dickens
+    </div>
+    <div class="question">
+        <p>5. In psychology, what does the nature vs. nurture debate explore?</p><input type="radio" name="q5"
+            value="a"> a. The influence of genetics versus environment on human development<br><input type="radio"
+            name="q5" value="b"> b. The impact of technology on society<br><input type="radio" name="q5" value="c"> c.
+        The study of dreams<br><input type="radio" name="q5" value="d"> d. The role of emotions in decision-making
+    </div>
+    <div class="question">
+        <p>6. What is the main focus of anthropology as a social science?</p><input type="radio" name="q6" value="a"> a.
+        The study of human behavior<br><input type="radio" name="q6" value="b"> b. The analysis of economic
+        systems<br><input type="radio" name="q6" value="c"> c. The examination of political structures<br><input
+            type="radio" name="q6" value="d"> d. The study of human societies and cultures
+    </div>
+    <div class="question">
+        <p>7. Which philosophical movement emphasized reason, logic, and skepticism during the 17th and 18th centuries?
+        </p><input type="radio" name="q7" value="a"> a. Romanticism<br><input type="radio" name="q7" value="b"> b.
+        Existentialism<br><input type="radio" name="q7" value="c"> c. Rationalism<br><input type="radio" name="q7"
+            value="d"> d. Idealism
+    </div>
+    <div class="question">
+        <p>8. What is the central theme of the novel "1984" by George Orwell?</p><input type="radio" name="q8"
+            value="a"> a. Dystopian society and government surveillance<br><input type="radio" name="q8" value="b"> b.
+        Romantic love in a futuristic world<br><input type="radio" name="q8" value="c"> c. Exploration of space and time
+        travel<br><input type="radio" name="q8" value="d"> d. Coming-of-age story in a small town
+    </div>
+    <div class="question">
+        <p>9. Who is known for his social contract theory, emphasizing the agreement between individuals and the
+            government?</p><input type="radio" name="q9" value="a"> a. John Locke<br><input type="radio" name="q9"
+            value="b"> b. Jean-Jacques Rousseau<br><input type="radio" name="q9" value="c"> c. Thomas Hobbes<br><input
+            type="radio" name="q9" value="d"> d. Montesquieu
+    </div>
+    <div class="question">
+        <p>10. What is the primary focus of economics as a social science?</p><input type="radio" name="q10" value="a">
+        a. Study of historical events<br><input type="radio" name="q10" value="b"> b. Analysis of political
+        ideologies<br><input type="radio" name="q10" value="c"> c. Understanding the production and distribution of
+        goods and services<br><input type="radio" name="q10" value="d"> d. Examination of cultural practices
+    </div>
+        <button onclick="showResult()">Submit</button>
+       
+        <div id="resultModal" class="modal">
+            <div class="modal-content">
+                <h2>Your Result</h2>
+                <p id="score"></p>
+                <a href="https://drive.google.com/drive/folders/1ZyXMbyCutbONYUk3yHka7BUAbsWQBMoF?usp=drive_link" target="_blank">Learn more</a>
+                <button class="homepage-button" onclick="goToHome()">Home</button>
+            </div>
+    
+        
+    </div>
+
+    <script>
+        function showResult() {
+            var score = 0;
+            var answers = ["d", "c", "d", "b", "a", "d", "c", "a", "b", "c"]; // Array of correct answers
+            var userAnswers = [
+                document.querySelector('input[name="q1"]:checked'),
+                document.querySelector('input[name="q2"]:checked'),
+                document.querySelector('input[name="q3"]:checked'),
+                document.querySelector('input[name="q4"]:checked'),
+                document.querySelector('input[name="q5"]:checked'),
+                document.querySelector('input[name="q6"]:checked'),
+                document.querySelector('input[name="q7"]:checked'),
+                document.querySelector('input[name="q8"]:checked'),
+                document.querySelector('input[name="q9"]:checked'),
+                document.querySelector('input[name="q10"]:checked')
+            ];
+    
+            for (var i = 0; i < answers.length; i++) {
+                if (userAnswers[i]) {
+                    if (answers[i] === userAnswers[i].value) {
+                        score++;
+                    }
+                } else {
+                    // Display notification if any question is unanswered
+                    alert("Please answer all questions before submitting.");
+                    return;
+                }
+            }
+    
+            var resultMessage = "You scored " + score + " out of 10. ";
+            if (score >= 7) {
+                resultMessage += "Great job! You have a strong understanding of Smaw.";
+            } else {
+                resultMessage += "Keep practicing to improve your knowledge.";
+            }
+    
+            // Show the result message in the modal
+            document.getElementById("score").innerHTML = resultMessage;
+            document.getElementById("resultModal").style.display = "flex";
+        }
+    
+        function goToHome() {
+    // Change the button text
+    document.querySelector('.homepage-button').textContent = 'Home';
+
+    // Close the result modal
+    document.getElementById("resultModal").style.display = "none";
+
+    // You can add additional actions here if needed
+
+    // Navigate to home.html or any other desired location
+    window.location.href = 'Home.html';
+}
+    </script>
+    
+</body>
+
+</html>

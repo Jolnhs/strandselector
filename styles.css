@@ -1,0 +1,107 @@
+header {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    color: #ecf0f1;
+    font-size: 30px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Body Styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: rgba(52, 225, 121, 1.0);
+    background: linear-gradient(315deg, rgba(52, 225, 121, 1.0), rgba(87, 60, 140, 1.0));
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+/* Container Styles */
+div {
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+    width: 100%;
+    text-align: justify;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Heading Styles */
+h1 {
+    margin-top: 20px;
+}
+
+/* Question Styles */
+.question {
+    margin-top: 20px;
+}
+
+/* Input Styles */
+input {
+    margin-left: 10px;
+}
+
+/* Button Styles */
+button {
+    background-color:rgb(143, 231, 143);
+    color: #090808;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px 30px;
+    font-size: 24px;
+}
+
+button:hover {
+    background-color: #2980b9;
+}
+
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 80%;
+   
+    justify-content: center;
+    align-items: center;
+    z-index: ;
+    background: none;
+}
+
+.modal-content {
+    background-color: #fff !important;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 80%;
+}
+
+
+
+#score {
+    font-size: 18px;
+    color: #333;
+    margin-top: 20px;
+}
+
+    
+@media screen and (max-width: 600px) {
+    
+}

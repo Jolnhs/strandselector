@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <header>Welding Exam
+      
+    </header>
+    
+    <link rel="stylesheet" href="./styles.css" />
+
+</head>
+
+<body>
+    <div class="question">
+        <p>1. What is the primary function of mitochondria in a cell?</p>
+        <input type="radio" name="q1" value="a"> a. Protein synthesis<br>
+        <input type="radio" name="q1" value="b"> b. Energy production<br>
+        <input type="radio" name="q1" value="c"> c. Waste elimination<br>
+        <input type="radio" name="q1" value="d"> d. Cell division
+    </div>
+    <div class="question">
+        <p>2. During which phase of the cell cycle does mitosis occur?</p>
+        <input type="radio" name="q2" value="a"> a. G1 phase<br>
+        <input type="radio" name="q2" value="b"> b. S phase<br>
+        <input type="radio" name="q2" value="c"> c. G2 phase<br>
+        <input type="radio" name="q2" value="d"> d. M phase
+    </div>
+    <div class="question">
+        <p>3. Which of Newton's laws states that an object at rest will remain at rest, and an object in motion will stay in motion unless acted upon by a net external force?</p>
+        <input type="radio" name="q3" value="a"> a. Newton's First Law<br>
+        <input type="radio" name="q3" value="b"> b. Newton's Second Law<br>
+        <input type="radio" name="q3" value="c"> c. Newton's Third Law<br>
+        <input type="radio" name="q3" value="d"> d. Law of Gravitation
+    </div>
+    <div class="question">
+        <p>4. What is the structure responsible for storing genetic information in cells?</p>
+        <input type="radio" name="q4" value="a"> a. Ribosome<br>
+        <input type="radio" name="q4" value="b"> b. Nucleus<br>
+        <input type="radio" name="q4" value="c"> c. Endoplasmic reticulum<br>
+        <input type="radio" name="q4" value="d"> d. Golgi apparatus
+    </div>
+    <div class="question">
+        <p>5. According to Ohm's Law, what is the relationship between voltage, current, and resistance in an electrical circuit?</p>
+        <input type="radio" name="q5" value="a"> a. V = IR<br>
+        <input type="radio" name="q5" value="b"> b. I = VR<br>
+        <input type="radio" name="q5" value="c"> c. R = VI<br>
+        <input type="radio" name="q5" value="d"> d. V = I/R
+    </div>
+    <div class="question">
+        <p>6. Which scientific concept explains the gradual change in species over time due to environmental factors?</p>
+        <input type="radio" name="q6" value="a"> a. Natural selection<br>
+        <input type="radio" name="q6" value="b"> b. Genetic drift<br>
+        <input type="radio" name="q6" value="c"> c. Speciation<br>
+        <input type="radio" name="q6" value="d"> d. Mutation
+    </div>
+    <div class="question">
+        <p>7. What does the pH scale measure in chemistry?</p>
+        <input type="radio" name="q7" value="a"> a. Temperature<br>
+        <input type="radio" name="q7" value="b"> b. Acidity<br>
+        <input type="radio" name="q7" value="c"> c. Density<br>
+        <input type="radio" name="q7" value="d"> d. Mass
+    </div>
+    <div class="question">
+        <p>8. Which of the following is an example of a transverse wave?</p>
+        <input type="radio" name="q8" value="a"> a. Sound wave<br>
+        <input type="radio" name="q8" value="b"> b. Water wave<br>
+        <input type="radio" name="q8" value="c"> c. Earthquake wave<br>
+    </div>
+    <div class="question">
+        <p>9. In the scientific method, what is the step where observations and data are collected?</p>
+        <input type="radio" name="q9" value="a"> a. Hypothesis<br>
+        <input type="radio" name="q9" value="b"> b. Experimentation<br>
+        <input type="radio" name="q9" value="c"> c. Analysis<br>
+        <input type="radio" name="q9" value="d"> d. Observation
+    </div>
+    <div class="question">
+        <p>10. What branch of mathematics deals with rates of change and accumulation, often used in physics?</p>
+        <input type="radio" name="q10" value="a"> a. Algebra<br>
+        <input type="radio" name="q10" value="b"> b. Geometry<br>
+        <input type="radio" name="q10" value="c"> c. Trigonometry<br>
+        <input type="radio" name="q10" value="d"> d. Calculus
+    </div>
+    <button onclick="showResult()">Submit</button>
+
+    <!-- Result Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2>Your Result</h2>
+            <p id="score"></p>
+            <a href="https://drive.google.com/drive/folders/1t9XEFVBAlI1Q-r0MyY4Cm9MK8KJxJMNg?usp=drive_link" target="_blank">Learn more</a>
+          
+            <button class="homepage-button" onclick="goToHome()">Home</button>
+
+
+        </div>
+   <script>
+    function showResult() {
+        var score = 0;
+        var answers = ["d", "c", "d", "b", "a", "d", "c", "a", "b", "c"]; // Array of correct answers
+        var userAnswers = [
+            document.querySelector('input[name="q1"]:checked'),
+            document.querySelector('input[name="q2"]:checked'),
+            document.querySelector('input[name="q3"]:checked'),
+            document.querySelector('input[name="q4"]:checked'),
+            document.querySelector('input[name="q5"]:checked'),
+            document.querySelector('input[name="q6"]:checked'),
+            document.querySelector('input[name="q7"]:checked'),
+            document.querySelector('input[name="q8"]:checked'),
+            document.querySelector('input[name="q9"]:checked'),
+            document.querySelector('input[name="q10"]:checked')
+        ];
+
+        for (var i = 0; i < answers.length; i++) {
+            if (userAnswers[i]) {
+                if (answers[i] === userAnswers[i].value) {
+                    score++;
+                }
+            } else {
+                // Display notification if any question is unanswered
+                alert("Please answer all questions before submitting.");
+                return;
+            }
+        }
+
+        var resultMessage = "You scored " + score + " out of 10. ";
+        if (score >= 7) {
+            resultMessage += "Great job! You have a strong understanding of Smaw.";
+        } else {
+            resultMessage += "Keep practicing to improve your knowledge.";
+        }
+
+        // Show the result message in the modal
+        document.getElementById("score").innerHTML = resultMessage;
+        document.getElementById("resultModal").style.display = "flex";
+    }
+
+    function goToHome() {
+    // Change the button text
+    document.querySelector('.homepage-button').textContent = 'Home';
+
+    // Close the result modal
+    document.getElementById("resultModal").style.display = "none";
+
+    // You can add additional actions here if needed
+
+    // Navigate to home.html or any other desired location
+    window.location.href = 'Home.html';
+}
+
+</script>
+
+</body>
+
+</html>
